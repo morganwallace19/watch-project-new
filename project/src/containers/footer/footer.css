@@ -1,0 +1,122 @@
+.footerContainer {
+    font-family: 'Lato', sans-serif;
+    background-color: #804A00;
+}
+
+.footerWrap {
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footerLinksContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.footerLinksWrapper {
+    display: flex;
+}
+
+.footerLinkItems {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px;
+    text-align: left;
+    width: 160px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.footerLinkTitle {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.footerLink {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+}
+
+.footerLink:hover {
+    color: #693604;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+
+.socialMedia {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.socialMediaWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+}
+
+.socialLogo {
+    color: #fff;
+    justify-self: start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Zilla', sans-serif;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.websiteRights {
+    color: #fff;
+    margin-bottom: 16px;
+    font-family: 'Lora', sans-serif;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+}
+
+.socialIconLink {
+    color: #fff;
+    font-size: 24px;
+}
+
+
+@media screen and (max-width: 820px) {
+    .footerLinksContainer {
+        padding-top: 32px;
+    }
+
+    .footerLinksWrapper {
+        flex-direction: column;
+    }
+
+    .socialMediaWrap {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 420px) {
+   .footerLinkItems {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+   }
+}
+
+
+

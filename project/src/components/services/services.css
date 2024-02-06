@@ -1,0 +1,33 @@
+#services {
+    font-family: 'Lato', sans-serif;
+    /* background: rgba(0, 40, 83, 1); */
+    background: #804A00;
+}
+
+/* .servicesContainer {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 4rem;
+    font-family: 'Lato', sans-serif;
+    background: #fff;
+}
+
+.servicesContainer span {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.servicesContainer h1 {
+    padding-top: 1rem;
+    text-transform: capitalize;
+}
+
+.slick-list, .slick-slider, .slick-track {
+    padding: 0;
+}
+
+.slick-dots {
+    text-align: left;
+    margin-left: 1rem;
+} */
