@@ -37,7 +37,7 @@
 }
 
 .btn-primary {
-    background: chocolate;
+    background: rgb(210, 105, 30);
     color: var(--color-bg);
     width: max-content;
     display: inline-block;
@@ -117,6 +117,7 @@
 .about__content p {
     margin: 2rem 0 2.6rem;
     color: #000;
+    font-size: 1.5rem;
 }
 
 /* Media Queries */

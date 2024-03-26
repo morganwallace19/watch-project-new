@@ -95,6 +95,11 @@
     font-size: 24px;
 }
 
+.socialIconLink:hover {
+    transform: scale(1.2);
+    transition: all 0.2s ease-out;
+}
+
 
 @media screen and (max-width: 820px) {
     .footerLinksContainer {

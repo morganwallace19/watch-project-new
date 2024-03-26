@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom'
 // import { Button } from '../hero/Button'
 import { Product } from './Product'
 import { PRODUCTS } from './products'
-import { ShoppingCart } from 'phosphor-react'
+import { MapPin, ShoppingCart } from 'phosphor-react'
+import { FaMapPin } from 'react-icons/fa'
 import logo from '../../assets/logo.png';
 import Aos from 'aos'
 import '../../containers/footer/footer.css'
 import { FaFacebook, FaInstagram, FaPinterest, FaYoutube } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
+import watchVideo from '../../assets/watch.mp4'
+import './shop.css'
 
 const Shop = () => {
 
@@ -27,37 +30,36 @@ const Shop = () => {
   return (
     // Navbar
     <div>
-    <div className='gpt3__navbar'>
-      <div className="gpt3__navbar-links">
-        <div className='gpt3__navbar-links_logo'>
+    <div className='watch__navbar'>
+      <div className="watch__navbar-links">
+        <div className='watch__navbar-links_logo'>
           {/* <h5>Watches</h5> */}
           <img src={logo} alt="logo"/>
         </div>
-        <div className='gpt3__navbar-links_container'>
+        <div className='watch__navbar-links_container'>
           {/* <Menu /> */}
           <Link to={"/"}><p>Home</p></Link>
           <Link to={"/shop"}><p>Shop</p></Link>
-          {/* <Link to={"/cart"}><p>Nav</p></Link> */}
         </div>
       </div>
-      <div className='gpt3__navbar-sign'>
+      <div className='watch__navbar-sign'>
         {/* <p>Sign in</p>
         <button type='button'>Sign Up</button> */}
         <Link to={"/cart"}><ShoppingCart size={32} color='#fff' /></Link>
       </div>
-      <div className='gpt3__navbar-menu'>
+      <div className='watch__navbar-menu'>
         {toggleMenu 
         ? <RiCloseLine color="fff" size={27} onClick={() => setToggleMenu(false)} />
         : <RiMenu3Line color="fff" size={27} onClick={() => setToggleMenu(true)} />
       }
       {toggleMenu && (
-        <div className='gpt3__navbar-menu_container scale-up-center'>
-          <div className='gpt3__navbar-menu_container-links'>
+        <div className='watch__navbar-menu_container scale-up-center'>
+          <div className='watch__navbar-menu_container-links'>
             {/* <Menu /> */}
             <Link to={"/"}><p>Home</p></Link>
             <Link to={"/shop"}><p>Shop</p></Link>
             <Link to={"/cart"}><ShoppingCart size={32} color='#fff' /></Link>
-            <div className='gpt3__navbar-menu_container-links-sign'>
+            <div className='watch__navbar-menu_container-links-sign'>
         {/* <p>Sign in</p>
         <button type='button'>Sign Up</button> */}
       </div>
@@ -69,9 +71,13 @@ const Shop = () => {
 
     {/* overlay */}
 
-    <div className='hero-container'>
-      <h1>Watch Collection</h1>
-      <p>See the finest watches</p>
+    <div className='hero-container-video'>
+      <div className="overlay"></div>
+      <video src={watchVideo} autoPlay loop muted />
+      <div className="watch-content">
+        <h1>Watch Collection</h1>
+        <p>See the finest watches</p>
+      </div>
     </div>
 
     {/* shop */}
@@ -84,8 +90,8 @@ const Shop = () => {
 
         <div className="products">
           {/* {" "} */}
-          {PRODUCTS.map((product) => (
-            <Product data={product} />
+          {PRODUCTS.map((product, index) => (
+            <Product data={product} key={index} />
           ))}
         </div>
       </div>

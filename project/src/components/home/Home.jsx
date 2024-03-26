@@ -7,7 +7,7 @@ import '../../components/navbar/navbar.css';
 import  AboutImg  from '../../assets/watch01.png'
 import '../../components/shop/shop.css'
 
-import { ShoppingCart } from 'phosphor-react';
+import { MapPin, ShoppingCart } from 'phosphor-react';
 
 import '../../containers/header/header.css'
 import people from '../../assets/people.png'
@@ -97,37 +97,35 @@ const Home = () => {
 
     // Navbar
     <div>
-    <div className='gpt3__navbar'>
-      <div className="gpt3__navbar-links">
-        <div className='gpt3__navbar-links_logo'>
+    <div className='watch__navbar'>
+      <div className="watch__navbar-links">
+        <div className='watch__navbar-links_logo'>
           {/* <h5>Watches</h5> */}
           <img src={logo} alt="logo"/>
         </div>
-        <div className='gpt3__navbar-links_container'>
+        <div className='watch__navbar-links_container'>
           {/* <Menu /> */}
           <Link to={"/"}><p>Home</p></Link>
           <Link to={"/shop"}><p>Shop</p></Link>
           {/* <Link to={"/cart"}><p>Nav</p></Link> */}
         </div>
       </div>
-      <div className='gpt3__navbar-sign'>
-        {/* <p>Sign in</p>
-        <button type='button'>Sign Up</button> */}
+      <div className='watch__navbar-sign'>
         <Link to={"/cart"}><ShoppingCart size={32} color='#fff' /></Link>
       </div>
-      <div className='gpt3__navbar-menu'>
+      <div className='watch__navbar-menu'>
         {toggleMenu 
         ? <RiCloseLine color="fff" size={27} onClick={() => setToggleMenu(false)} />
         : <RiMenu3Line color="fff" size={27} onClick={() => setToggleMenu(true)} />
       }
       {toggleMenu && (
-        <div className='gpt3__navbar-menu_container scale-up-center'>
-          <div className='gpt3__navbar-menu_container-links'>
+        <div className='watch__navbar-menu_container scale-up-center'>
+          <div className='watch__navbar-menu_container-links'>
             {/* <Menu /> */}
             <Link to={"/"}><p>Home</p></Link>
             <Link to={"/shop"}><p>Shop</p></Link>
             <Link to={"/cart"}><ShoppingCart size={32} color='#fff' /></Link>
-            <div className='gpt3__navbar-menu_container-links-sign'>
+            <div className='watch__navbar-menu_container-links-sign'>
         {/* <p>Sign in</p>
         <button type='button'>Sign Up</button> */}
       </div>
@@ -141,11 +139,11 @@ const Home = () => {
 
 {/* // const Header = () => {
     return ( */}
-       <div className='gpt3__header section__padding' id='home'>
-             <div className='gpt3__header-content'>
+       <div className='shop__header section__padding' id='home'>
+             <div className='shop__header-content'>
                  <h1 className='gradient__text'>The home of amazing watches</h1>
                  <p>We at Punter Watches sell amazing swiss made watched and have sponsers with famous brand such as Rolex, Omega, and others.</p>
-                 <div className='gpt3__header-content__input'>
+                 <div className='shop__header-content__input'>
                   
                      <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Your Email Address' />
                      <button onClick={handleSubmit} type='submit'>Newsletter</button>
@@ -157,7 +155,7 @@ const Home = () => {
                      <p>1,600 people requested access a visit in last 24 hours</p>
                  </div> */}
              </div>
-             <div className='gpt3__header-image'>
+             <div className='shop__header-image'>
                      <img src={cover} alt="ai" />
                  </div>
          </div>
@@ -196,9 +194,9 @@ const Home = () => {
             </article>
           </div> */}
 
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam doloribus nobis velit repellat iste temporibus iure, exercitationem, in beatae quos consequuntur praesentium cum culpa odit, officiis facilis eum unde non?</p>
+          <p>Punter Watches sells swiss made watches. We have existed for some time. We have watches for sale that are from various brands.</p>
 
-          <a href="# " className='btn btn-primary'>Let's Talk</a>
+          {/* <a href="# " className='btn btn-primary'>Let's Talk</a> */}
         </div>
       </div>
     </section>

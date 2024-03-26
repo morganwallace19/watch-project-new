@@ -1,4 +1,4 @@
-import { ShoppingCart } from 'phosphor-react';
+import { MapPin, ShoppingCart } from 'phosphor-react';
 import '../navbar/navbar.css'
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,6 +13,17 @@ import './cart.css'
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
 
+  // New Code
+
+  const newCartItems = function transformCartItems(cartItems, products) {
+    return products.map((product) => ({
+      id: product.model,
+      quantity: cartItems[product.id] || 0,
+    }));
+  }
+
+  //
+
   const navigate = useNavigate()
   const checkout = async () => {
     
@@ -21,7 +32,8 @@ import './cart.css'
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({items: cartItems.items})
+     // body: JSON.stringify({items: cartItems.items})
+      body: JSON.stringify({items:newCartItems(cartItems, PRODUCTS)})
     }).then((response) => {
       return response.json();
     }).then((response) => {
@@ -38,37 +50,37 @@ import './cart.css'
   return (
       // Navbar
       <div>
-      <div className='gpt3__navbar'>
-        <div className="gpt3__navbar-links">
-          <div className='gpt3__navbar-links_logo'>
+      <div className='watch__navbar'>
+        <div className="watch__navbar-links">
+          <div className='watch__navbar-links_logo'>
             {/* <h5>Watches</h5> */}
             <img src={Logo} alt="logo"/>
           </div>
-          <div className='gpt3__navbar-links_container'>
+          <div className='watch__navbar-links_container'>
             {/* <Menu /> */}
             <Link to={"/"}><p>Home</p></Link>
             <Link to={"/shop"}><p>Shop</p></Link>
             {/* <Link to={"/cart"}><p>Nav</p></Link> */}
           </div>
         </div>
-        <div className='gpt3__navbar-sign'>
+        <div className='watch__navbar-sign'>
           {/* <p>Sign in</p>
           <button type='button'>Sign Up</button> */}
           <Link to={"/cart"}><ShoppingCart size={32} color='#fff' /></Link>
         </div>
-        <div className='gpt3__navbar-menu'>
+        <div className='watch__navbar-menu'>
           {toggleMenu 
           ? <RiCloseLine color="fff" size={27} onClick={() => setToggleMenu(false)} />
           : <RiMenu3Line color="fff" size={27} onClick={() => setToggleMenu(true)} />
         }
         {toggleMenu && (
-          <div className='gpt3__navbar-menu_container scale-up-center'>
-            <div className='gpt3__navbar-menu_container-links'>
+          <div className='watch__navbar-menu_container scale-up-center'>
+            <div className='watch__navbar-menu_container-links'>
               {/* <Menu /> */}
               <Link to={"/"}><p>Home</p></Link>
               <Link to={"/shop"}><p>Shop</p></Link>
               <Link to={"/cart"}><ShoppingCart size={32} color='#fff' /></Link>
-              <div className='gpt3__navbar-menu_container-links-sign'>
+              <div className='watch__navbar-menu_container-links-sign'>
           {/* <p>Sign in</p>
           <button type='button'>Sign Up</button> */}
         </div>
@@ -93,7 +105,8 @@ import './cart.css'
           {totalAmount > 0 ? (
           <div className='checkout'>
             <p> Subtotal: £{totalAmount} </p>
-            <button onClick={() => navigate("/shop")}> Continue Shopping </button>
+            <button onClick={() => navigate("/shop")}>
+              {" "} Continue Shopping {" "} </button>
             <button onClick={checkout} > Checkout </button>
           </div>
           ) : (
